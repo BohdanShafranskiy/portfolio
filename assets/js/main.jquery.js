@@ -10,10 +10,13 @@ function nextSlide() {
     else
         activeItem.next().addClass(active);
 }
+function openWebsite(url) {
+    window.location.href = url;
+}
 function ViewJob(index) {
     const job = jobs[index], company = job[0], imgSRC = job[1], website = job[2], review = job[3];
     $('#projectName').text(company);
-    $('#modalBody').html(`<div><a href="${website}" target="_blank"><img src="${demoSRC}${imgSRC}" alt="${company}"></a></div>`);
+    $('#modalBody').html(`<div><a href="javascript:voit(0)" onclick="openWebsite('${website}')"><img src="${demoSRC}${imgSRC}" alt="${company}"></a></div>`);
     $('#review p').html(review);
     $('.modal').addClass('open');
 }
